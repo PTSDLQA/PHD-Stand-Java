@@ -1,0 +1,25 @@
+*** Cofax cofax MYSQL database installation
+*** Updated on 06/12/02 by Karl Martino
+*** Updated on 11/12/06 by F.X. Robin
+
+To Install:
+-------------------------------------------------------------------
+1. cd d:\projects\cofax\apps\databases\cdw_mysql
+
+2. mysql -u [cofaxuser] -p
+password: *****
+mysql> create database cofax;
+mysql> use cofax;
+mysql> source COFAX_SCHEMA.sql
+mysql> source DEFAULT_PUBLICATION.sql
+mysql> quit 
+
+Replace [cofaxuser] above with user that has appropriate permissions.
+
+3. Edit web.xml with proper connection information.
+
+For Developers:
+-------------------------------------------------------------------
+1.  To update cofax.sql script run:
+mysqldump -u[adminuser] -p --opt cofax > cofax.sql
+password: *****

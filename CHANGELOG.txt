@@ -1,0 +1,106 @@
+CHANGELOG for Cofax http://www.cofax.org/
+
+*****************************
+*          2.3              *
+*****************************
+* bug fix on section selector in add article window.
+* 2.3.1 : fix 1 SQL statement in DEFAULT_PUBLICATION
+* 2.3.1 : adding pubName as prefix of sectionDesc in Mappings combo
+* 2.3.1 : adding CofaxInstaller.war in the distribution 
+* 2.3.1 : fixing mapping issue (s_insertMap.java)
+* 2.3.1 u3 : fixing adt_getSection and getArticle packagetags
+
+
+*****************************
+*          2.3 beta         *
+*****************************
+** Many bug fixes
+
+*****************************
+*          2.0 RC 2                           *
+*****************************
+
+** Bug Fixes
+*** Corrected MySql database creation script
+*** 953221 : Article versions are now saved into tblArticleVersion
+*** 953218 : the link is now absolute
+*** 934860 : servlet.jar has been added into 'ext' folder
+*** 794423 : the log function use System.err in case of error
+
+
+*****************************
+*          2.0 RC 1                           *
+*****************************
+ 
+** Features
+*** New design for the back-office, more user-frendly
+*** Wysiwyg editor (HtmlArea) for Internet Explorer 5.5+ and Mozilla 1.3+
+*** Multilingual back-office (english and french are done)
+*** Cache for JSP templates
+*** MyAccount page with my last modified articles, my saved searches, my articles 
+to validate or publish, my personal information
+*** Automatic lock/unlock function for articles
+*** Lost password function 
+*** Life cycle publication with start and end dates
+*** Workflow for article validation and publication
+*** Multistate for articles :draft, in process of validation, published
+*** New module system not intrusive 
+*** Module "image upload"
+*** Module "poll" (cache must be disabled)
+
+
+** Bug Fixes
+*** Corrected updating updateDate in smile.stored code which updates cdw_mysql.
+*** Corrected case in cdw_mysql/goon.sql
+Provided instructions on how to avoid in the future in 
+cdw_mysql/install.txt
+
+
+** API Changes
+*** Removed targetDataStore from the DataStore API.  Was only being used 
+for MySQL CDW.
+*** Removed unused fields and methods from CofaxPage.
+*** Renamed CofaxUtil.newLine to CofaxUtil.NEW_LINE
+*** Renamed CofaxUtil.xhtmlNewLine to CofaxUtil.XHTML_NEW_LINE
+*** Added setting and getting the dataStoreName to the Data Store class. 
+This fasicilitated in removing passsing around the datastore name when 
+connections or disconnections where being called. Many classes simplified.
+*** Removed Perl5Util passing from CDSServlet to Redirection.  
+*** Redirection now instantiates it's own Perl5Util.      
+*** Added a toString() to CofaxCache to report it's configuration.
+*** Added a toString() to TemplateLoader to report it's configuration.
+*** Added a toString() to TemplateProcessor to report it's configuration.
+*** Added a toString() to DataStore to report it's configuration.
+*** Added a toString() to Redirecion to report it's configuration.
+*** Removed unneccessary private variables from CDSServlet.
+*** Updated org.cofax.connectionpool.ConnectionWrapper to 1.4 API standard.
+   As a consequence COFAX WILL NO LONGER COMPILE under versions of the SDK
+   lower then 1.4.
+
+** Database
+*** Change table tblActiveArticles to tblArticlePreload. The schema has changed too.
+*** add table tblArticleLock
+*** add table tblModules
+*** add table tblPermUserSection
+*** change all (or near) the packageTags
+
+*****************************
+*          1.9.9d           *
+*****************************
+** Bug Fixes
+*** Corrected getSection and getArticle MySQL packageTags which were not using pubDate as a parameter. 
+*** Corrected MySQL code for inserting articles. Was not taking into account a blank articleType on insert.
+ 
+** Features
+*** Added getColumnistArchive packageTag to MySQL. 
+
+
+*****************************
+*          1.9.9c                              *
+*****************************
+** First SourceForge release of code. 
+** Parity in functionality between MySQL and MS SQL Server data warehouse. 
+** Inclusion of all stability improvements in MS SQL Server data warehouse.
+ 
+
+
